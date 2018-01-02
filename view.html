@@ -1,0 +1,262 @@
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="all-styles.css" type="text/css">
+	<link rel="stylesheet" href="style.min.css" type="text/css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	 crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script>
+		document.write('<base href="' + document.location + '" />');
+	</script>
+</head>
+
+<body ng-app="betApp" ng-controller="X10Controller" ng-style='boyBetStyle'>
+	<div class="pro-bet">
+		<div class="setting-content">
+			<div class="left-content">
+				<div class="row">
+					<div class="large-8 small-8 columns">
+						<div class="row">
+							<div class="large-5 small-5 columns">
+								<fieldset>
+									<legend>Cài đặt:</legend>
+									<div class="row">
+										<div class="large-7 small-7 columns">
+											<div class="group">
+												<label class="title">Cược ban đầu</label>
+												<select ng-options="type.value as type.value for type in btcBases" ng-model="btcBase" ng-disabled="onBetting" ng-change="changeSetting()"></select>
+											</div>
+										</div>
+										<div class="large-5 small-5 columns">
+											<div class="group">
+												<label class="title">Payout</label>
+												<select ng-options="type.value as type.value for type in payouts" ng-model="payout" ng-disabled="onBetting" ng-change="changeSetting()"></select>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+							<div class="large-7 small-7 columns">
+								<fieldset style="min-height: 65px;">
+									<legend>Tùy chọn:</legend>
+									<div class="group">
+										<label class="title">Kiểu BET</label>
+										<ul class="modes-list ul-list">
+											<li ng-repeat="item in betModes">
+												<label>
+													<input type="radio" name="betModeOption" ng-model="$parent.betMode" ng-value="item.value">{{item.name}}</label>
+											</li>
+										</ul>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<div class="row">
+							<div class="large-9 small-9 columns">
+								<fieldset>
+									<legend>Tùy chọn rà chuỗi và cược:</legend>
+									<div class="row">
+										<div class="large-4 small-4 columns">
+											<div class="group">
+												<label class="title">Chuỗi rà trước</label>
+												<select style="max-width: 50px; display: inline;" ng-options="type.value as type.value for type in betProbes" ng-model="betProbe"
+												 ng-disabled="onBetting" ng-change="changeSetting()"></select>
+											</div>
+										</div>
+										<div class="large-4 small-4 columns">
+											<div class="group">
+												<label class="title">Cược sau rà</label>
+												<select ng-options="type.value as type.value for type in btcPlusList" ng-model="btcPlus" ng-disabled="onBetting" ng-change="changeSetting()"></select>
+											</div>
+										</div>
+										<div class="large-4 small-4 columns">
+											<div class="group">
+												<label class="title">Tăng % lên</label>
+												<select style="max-width: 50px; display: inline;" ng-options="type.value as type.value for type in percentIncreases" ng-model="percentIncrease"
+												 ng-disabled="onBetting" ng-change="changeSetting()"></select>
+												<span>%</span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="large-4 small-4 columns">
+											<div class="group">
+												<label class="title">Tăng % sau khi</label>
+												<span>thua</span>
+												<select style="max-width: 40px; display: inline;" ng-options="type.value as type.value for type in increaseWhenLosts" ng-model="increaseWhenLost"
+												 ng-disabled="onBetting" ng-change="changeSetting()"></select>
+												<span>lần</span>
+											</div>
+										</div>
+										<div class="large-4 small-4 columns">
+											<div class="group">
+												<label class="title">Chuỗi rà sau</label>
+												<select style="max-width: 90px; display: inline;" ng-options="type.value as type.value for type in betProbesAfter" ng-model="betProbeAfter"
+												 ng-disabled="onBetting" ng-change="changeSetting()">
+													<option value="">Không set</option>
+												</select>
+											</div>
+										</div>
+										<div class="large-4 small-4 columns">
+											<div class="group">
+												<label class="title">Thua an toàn</label>
+												<select style="max-width: 100px; display: inline;" ng-options="type.value as type.value for type in btcLostList" ng-model="loseProbeAfter"
+												 ng-disabled="onBetting || !betProbeAfter" ng-change="changeSetting()"></select>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+							<div class="large-3 small-3 columns">
+								<fieldset style="min-height: 104px;">
+									<legend>Tạm dừng</legend>
+									<div class="group">
+										<label class="title">Sau khi ăn</label>
+										<input type="checkbox" name="pauseOnWin" ng-model="pauseOnWin" />
+										<span>Dừng</span>
+									</div>
+									<!-- <div class="group">
+										<label class="title">Hoặc Bet hơn</label>
+										<select style="display: inline-block; width: 47px;" ng-options="type.value as type.name for type in increaseBets" ng-model="pauseOnLoss"></select>
+										<span>lần</span>
+									</div> -->
+								</fieldset>
+							</div>
+						</div>
+						<div class="row">
+							<div class="large-12 small-12 columns">
+								<fieldset style="min-height: 50px;">
+									<legend>Tốc độ BET</legend>
+									<ul class="speed-list ul-list">
+										<li ng-repeat="item in betSpeeds">
+											<label>
+												<input type="radio" name="betSpeedOption" ng-model="$parent.betSpeed" ng-value="item.value" ng-disabled="betSpeedAuto" />{{item.name}}</label>
+										</li>
+										<li>
+											<label>
+												<input type="checkbox" ng-model="betSpeedAuto" />Auto</label>
+										</li>
+									</ul>
+									<div class="clear"></div>
+								</fieldset>
+							</div>
+						</div>
+						<div class="tools-info">
+							<div class="marquee-area">
+								<marquee onMouseOver="this.stop()" onMouseOut="this.start()">Bản
+									<span class="tool-name">ProBET</span> này được phát triển bởi nhóm
+									<a target="_blank" href="https://www.facebook.com/groups/142471483081439/"
+									 class="author">Coin Free</a>
+									</span> - Mọi thắc mắc hoặc cần hỗ trợ, các bạn vui lòng liên hệ theo HOTLINE ở dưới - Chúc các bạn chơi vui vẻ!</marquee>
+							</div>
+							<label class="hot-line">HOTLINE: 0989.468.567 - 0961.179.678</label>
+							<label class="version">Phiên bản: 1.2.0</label>
+						</div>
+					</div>
+					<div class="large-4 small-4 columns">
+						<fieldset>
+							<legend>Thống kê:</legend>
+							<div class="row">
+								<div class="large-6 small-6 columns">
+									<div class="group">
+										<label class="title">Trước:</label>
+										<div class="btc-display red-color">{{btcBefore}}</div>
+									</div>
+								</div>
+								<div class="large-6 small-6 columns">
+									<div class="group">
+										<label class="title">Sau:</label>
+										<div id="btcAfter" class="btc-display green-color">{{btcAfter}}</div>
+									</div>
+								</div>
+								<div class="large-6 small-6 columns">
+									<div class="group">
+										<label class="title">Lợi nhuận:</label>
+										<div class="btc-display {{btcIncrement >= 0?'green-color':'red-color'}}">{{btcIncrement}}</div>
+									</div>
+								</div>
+								<div class="large-6 small-6 columns">
+									<div class="group">
+										<label class="title">Số lần Bet:</label>
+										<div class="btc-display red-color">{{betCount}}</div>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+						<fieldset style="min-height: 185px;">
+							<legend>Phân tích</legend>
+							<div class="group">
+								<label class="title">Bạn có
+									<span class="red-color">{{onBetList.length}}</span> lần cược:</label>
+								<span>
+									Mức cược lớn nhất:
+									<span class="green-color">{{currentMaxBet.btcBet}}</span>
+								</span>
+							</div>
+							<div class="group">
+								<label class="title">Cược lớn nhất hiện tại:</label>
+								<span>
+									<span class="red-color">{{onBtcMaxBet}}</span> (
+									<span class="red-color">{{onMaxBet}}</span> lần cược)</span>
+							</div>
+							<!-- <div class="group">
+								<label style="display: inline-block;" class="title">Cược lại sau:</label>
+								<span>Cược lớn hơn {{btcLimitBet}} ({{btcLimitPercent}}% vốn)</span>
+							</div>
+							<div class="group">
+								<label style="display: inline-block;" class="title">Cược lại sau:</label>
+								<span>Cược lớn hơn {{btcLimitBet}} ({{btcLimitPercent}}% vốn)</span>
+							</div> -->
+						</fieldset>
+					</div>
+				</div>
+			</div>
+			<div class="right-content">
+				<ul class="timeline-list">
+					<li ng-if="onBetList" ng-repeat="item in onBetList" id="line{{item.index}}" ng-class="{'active': item.index == lossIndex}">
+						<div class="bet-number">{{item.index}}</div>
+						<div class="btc-bet">{{item.btcBet}}</div>
+						<div class="btc-win" ng-class="{'positive': item.btcWin >= 0}">{{item.btcWin}}</div>
+					</li>
+					<li class="unknown-list" ng-if="onBetList.length == 0">
+						<span>Không xác định được chuỗi Bet</span>
+					</li>
+				</ul>
+			</div>
+			<div class="controls">
+				<div class="row">
+					<div class="large-6 small-6 columns">
+						<button ng-disabled="onBetting" ng-click="startBet()" class="bet-start">Bắt đầu</button>
+					</div>
+					<div class="large-6 small-6 columns">
+						<button ng-disabled="!onBetting" ng-click="pauseBet()" class="bet-pause">Tạm dừng</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="chart-lose" ng-if="loseList.length > 0">
+			<ul class="lose-list item-{{onMaxBet + 10}}">
+				<li ng-repeat="item in loseList" class="lose-item item-{{item.value}}">
+					<span>{{item.value}}</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div style="position: absolute; top: 0; right: 0;">
+		<div class="row manual_bet_element" style="margin:0; padding:0;">
+			<ul class="manual_bet_hi_lo_ul">
+				<center>
+					<li id="bet_hi_button" class="bet_hi_button_remove">
+						<button ng-click="requestBet()" id="double_your_btc_bet_hi_button">BET HI</button>
+					</li>
+					<li id="bet_lo_button" class="bet_lo_button_remove">
+						<button ng-click="requestBet()" id="double_your_btc_bet_lo_button">BET LO</button>
+					</li>
+				</center>
+			</ul>
+		</div>
+		<div class="balanceli">
+			<span id="balance" ng-value="balance">0.01168400</span> BTC</div>
+	</div>
+	<script src="js.js"></script>
+</body>

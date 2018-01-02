@@ -1,0 +1,835 @@
+#double_your_btc_main_container {
+  position: relative;
+}
+#double_your_btc_main_container .back-drop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+body {
+  min-height: 800px;
+}
+
+.pro-bet-btc {
+  background: #ff0 !important;
+  color: #000 !important;
+}
+
+.red-color {
+  color: #f00;
+  font-weight: bold !important;
+}
+
+.green-color {
+  color: #008000;
+  font-weight: bold !important;
+}
+
+.pro-bet {
+  position: fixed;
+  right: 0;
+  top: 55px;
+  left: 0;
+  width: 870px;
+  margin: 0 auto;
+  background: #fff;
+  min-height: 200px;
+  padding: 5px;
+  z-index: 100;
+  color: #000;
+  box-shadow: 0px 1px 15px #555;
+}
+.pro-bet * {
+  margin-bottom: 0 !important;
+  list-style: none;
+}
+.pro-bet .setting-content {
+  position: relative;
+  border-bottom: 1px solid #aaa;
+}
+.pro-bet .left-content {
+  margin-right: 150px;
+}
+.pro-bet .controls {
+  position: absolute;
+  top: auto;
+  left: auto;
+  right: 0;
+  bottom: 10px;
+  height: 36px;
+  width: 145px;
+}
+.pro-bet .controls button {
+  width: 100%;
+  padding: 0;
+  min-height: 40px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  line-height: 40px;
+  font-weight: bold;
+}
+.pro-bet .right-content {
+  position: absolute;
+  top: 6px;
+  left: auto;
+  right: 0;
+  height: 230px;
+  overflow: auto;
+  width: 145px;
+}
+.pro-bet .right-content .timeline-list li {
+  position: relative;
+  margin: 0;
+  height: 32px;
+}
+.pro-bet .right-content .timeline-list li.unknown-list {
+  height: auto !important;
+  text-align: center;
+  border: 1px solid #ccc;
+  margin-top: 10px !important;
+}
+.pro-bet .right-content .timeline-list li .bet-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 27px;
+  background: #607d8b;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  line-height: 26px;
+  height: 26px;
+}
+.pro-bet .right-content .timeline-list li .btc-bet {
+  margin-left: 34px;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: normal;
+  color: #f00;
+  opacity: .4;
+}
+.pro-bet .right-content .timeline-list li .btc-win {
+  margin-left: 30px;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: normal;
+  color: #008000;
+  opacity: .5;
+}
+.pro-bet .right-content .timeline-list li .btc-win.positive {
+  margin-left: 34px;
+}
+.pro-bet .right-content .timeline-list li.active .bet-number {
+  position: absolute;
+  font-size: 14px;
+  font-weight: bold;
+}
+.pro-bet .right-content .timeline-list li.active .btc-bet,
+.pro-bet .right-content .timeline-list li.active .btc-win {
+  opacity: 1;
+  font-size: 15px;
+  font-weight: bold;
+}
+.pro-bet .right-content .timeline-list li.active + li .btc-bet,
+.pro-bet .right-content .timeline-list li.active + li .btc-win {
+  opacity: .6;
+  font-size: 14px;
+  font-weight: bold;
+}
+.pro-bet .right-content .timeline-list li.active + li + li .btc-bet,
+.pro-bet .right-content .timeline-list li.active + li + li .btc-win {
+  opacity: .8;
+  font-size: 13px;
+}
+.pro-bet .row {
+  margin-left: -3px !important;
+  margin-right: -3px !important;
+  width: auto !important;
+}
+.pro-bet .row .column,
+.pro-bet .row .columns {
+  padding-left: 3px !important;
+  padding-right: 3px !important;
+}
+.pro-bet fieldset {
+  background: #fff;
+  min-width: auto;
+  padding: 5px 5px 0 5px;
+  margin: 0 0 5px 0 !important;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+}
+.pro-bet fieldset legend {
+  font-weight: bold;
+  padding: 0px;
+  margin: 0;
+  margin-left: 5px;
+  font-size: 14px;
+}
+.pro-bet label {
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 18px;
+}
+.pro-bet label.title {
+  font-weight: bold;
+}
+.pro-bet span {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+}
+.pro-bet input[type="text"],
+.pro-bet input[type="password"],
+.pro-bet input[type="date"],
+.pro-bet input[type="datetime"],
+.pro-bet input[type="datetime-local"],
+.pro-bet input[type="month"],
+.pro-bet input[type="week"],
+.pro-bet input[type="email"],
+.pro-bet input[type="number"],
+.pro-bet input[type="search"],
+.pro-bet input[type="tel"],
+.pro-bet input[type="time"],
+.pro-bet input[type="url"],
+.pro-bet textarea {
+  font-size: 13px;
+  margin: 0;
+  padding: 5px;
+  height: 22px;
+  line-height: 23px;
+}
+.pro-bet .group {
+  margin-bottom: 5px !important;
+}
+.pro-bet .ul-list {
+  font-size: 0;
+}
+.pro-bet .ul-list li {
+  display: inline-block;
+  font-size: 13px;
+  margin-right: 9px;
+}
+.pro-bet .btc-display {
+  font-size: 13px;
+  font-weight: bold;
+}
+.pro-bet .chart-lose {
+  margin-top: 10px;
+  text-align: center;
+}
+.pro-bet .chart-lose .lose-list {
+  display: inline;
+  vertical-align: bottom;
+}
+.pro-bet .chart-lose .lose-list .lose-item {
+  display: inline-block;
+  width: 20px;
+  background: #f9c9ce;
+  border: 1px solid #df9da4;
+  margin-left: -1px;
+  position: relative;
+}
+.pro-bet .chart-lose .lose-list .lose-item.first-child {
+  margin-left: 0;
+}
+.pro-bet .chart-lose .lose-list .lose-item span {
+  display: block;
+  position: absolute;
+  top: -16px;
+  font-weight: bold;
+  font-size: 10px;
+  text-align: center;
+  left: -1px;
+  right: -1px;
+}
+.pro-bet .chart-lose .item-1 {
+  height: 1px;
+}
+.pro-bet .chart-lose .item-2 {
+  height: 2px;
+}
+.pro-bet .chart-lose .item-3 {
+  height: 3px;
+}
+.pro-bet .chart-lose .item-4 {
+  height: 4px;
+}
+.pro-bet .chart-lose .item-5 {
+  height: 5px;
+}
+.pro-bet .chart-lose .item-6 {
+  height: 6px;
+}
+.pro-bet .chart-lose .item-7 {
+  height: 7px;
+}
+.pro-bet .chart-lose .item-8 {
+  height: 8px;
+}
+.pro-bet .chart-lose .item-9 {
+  height: 9px;
+}
+.pro-bet .chart-lose .item-10 {
+  height: 10px;
+}
+.pro-bet .chart-lose .item-11 {
+  height: 11px;
+}
+.pro-bet .chart-lose .item-12 {
+  height: 12px;
+}
+.pro-bet .chart-lose .item-13 {
+  height: 13px;
+}
+.pro-bet .chart-lose .item-14 {
+  height: 14px;
+}
+.pro-bet .chart-lose .item-15 {
+  height: 15px;
+}
+.pro-bet .chart-lose .item-16 {
+  height: 16px;
+}
+.pro-bet .chart-lose .item-17 {
+  height: 17px;
+}
+.pro-bet .chart-lose .item-18 {
+  height: 18px;
+}
+.pro-bet .chart-lose .item-19 {
+  height: 19px;
+}
+.pro-bet .chart-lose .item-20 {
+  height: 20px;
+}
+.pro-bet .chart-lose .item-21 {
+  height: 21px;
+}
+.pro-bet .chart-lose .item-22 {
+  height: 22px;
+}
+.pro-bet .chart-lose .item-23 {
+  height: 23px;
+}
+.pro-bet .chart-lose .item-24 {
+  height: 24px;
+}
+.pro-bet .chart-lose .item-25 {
+  height: 25px;
+}
+.pro-bet .chart-lose .item-26 {
+  height: 26px;
+}
+.pro-bet .chart-lose .item-27 {
+  height: 27px;
+}
+.pro-bet .chart-lose .item-28 {
+  height: 28px;
+}
+.pro-bet .chart-lose .item-29 {
+  height: 29px;
+}
+.pro-bet .chart-lose .item-30 {
+  height: 30px;
+}
+.pro-bet .chart-lose .item-31 {
+  height: 31px;
+}
+.pro-bet .chart-lose .item-32 {
+  height: 32px;
+}
+.pro-bet .chart-lose .item-33 {
+  height: 33px;
+}
+.pro-bet .chart-lose .item-34 {
+  height: 34px;
+}
+.pro-bet .chart-lose .item-35 {
+  height: 35px;
+}
+.pro-bet .chart-lose .item-36 {
+  height: 36px;
+}
+.pro-bet .chart-lose .item-37 {
+  height: 37px;
+}
+.pro-bet .chart-lose .item-38 {
+  height: 38px;
+}
+.pro-bet .chart-lose .item-39 {
+  height: 39px;
+}
+.pro-bet .chart-lose .item-40 {
+  height: 40px;
+}
+.pro-bet .chart-lose .item-41 {
+  height: 41px;
+}
+.pro-bet .chart-lose .item-42 {
+  height: 42px;
+}
+.pro-bet .chart-lose .item-43 {
+  height: 43px;
+}
+.pro-bet .chart-lose .item-44 {
+  height: 44px;
+}
+.pro-bet .chart-lose .item-45 {
+  height: 45px;
+}
+.pro-bet .chart-lose .item-46 {
+  height: 46px;
+}
+.pro-bet .chart-lose .item-47 {
+  height: 47px;
+}
+.pro-bet .chart-lose .item-48 {
+  height: 48px;
+}
+.pro-bet .chart-lose .item-49 {
+  height: 49px;
+}
+.pro-bet .chart-lose .item-50 {
+  height: 50px;
+}
+.pro-bet .chart-lose .item-51 {
+  height: 51px;
+}
+.pro-bet .chart-lose .item-52 {
+  height: 52px;
+}
+.pro-bet .chart-lose .item-53 {
+  height: 53px;
+}
+.pro-bet .chart-lose .item-54 {
+  height: 54px;
+}
+.pro-bet .chart-lose .item-55 {
+  height: 55px;
+}
+.pro-bet .chart-lose .item-56 {
+  height: 56px;
+}
+.pro-bet .chart-lose .item-57 {
+  height: 57px;
+}
+.pro-bet .chart-lose .item-58 {
+  height: 58px;
+}
+.pro-bet .chart-lose .item-59 {
+  height: 59px;
+}
+.pro-bet .chart-lose .item-60 {
+  height: 60px;
+}
+.pro-bet .chart-lose .item-61 {
+  height: 61px;
+}
+.pro-bet .chart-lose .item-62 {
+  height: 62px;
+}
+.pro-bet .chart-lose .item-63 {
+  height: 63px;
+}
+.pro-bet .chart-lose .item-64 {
+  height: 64px;
+}
+.pro-bet .chart-lose .item-65 {
+  height: 65px;
+}
+.pro-bet .chart-lose .item-66 {
+  height: 66px;
+}
+.pro-bet .chart-lose .item-67 {
+  height: 67px;
+}
+.pro-bet .chart-lose .item-68 {
+  height: 68px;
+}
+.pro-bet .chart-lose .item-69 {
+  height: 69px;
+}
+.pro-bet .chart-lose .item-70 {
+  height: 70px;
+}
+.pro-bet .chart-lose .item-71 {
+  height: 71px;
+}
+.pro-bet .chart-lose .item-72 {
+  height: 72px;
+}
+.pro-bet .chart-lose .item-73 {
+  height: 73px;
+}
+.pro-bet .chart-lose .item-74 {
+  height: 74px;
+}
+.pro-bet .chart-lose .item-75 {
+  height: 75px;
+}
+.pro-bet .chart-lose .item-76 {
+  height: 76px;
+}
+.pro-bet .chart-lose .item-77 {
+  height: 77px;
+}
+.pro-bet .chart-lose .item-78 {
+  height: 78px;
+}
+.pro-bet .chart-lose .item-79 {
+  height: 79px;
+}
+.pro-bet .chart-lose .item-80 {
+  height: 80px;
+}
+.pro-bet .chart-lose .item-81 {
+  height: 81px;
+}
+.pro-bet .chart-lose .item-82 {
+  height: 82px;
+}
+.pro-bet .chart-lose .item-83 {
+  height: 83px;
+}
+.pro-bet .chart-lose .item-84 {
+  height: 84px;
+}
+.pro-bet .chart-lose .item-85 {
+  height: 85px;
+}
+.pro-bet .chart-lose .item-86 {
+  height: 86px;
+}
+.pro-bet .chart-lose .item-87 {
+  height: 87px;
+}
+.pro-bet .chart-lose .item-88 {
+  height: 88px;
+}
+.pro-bet .chart-lose .item-89 {
+  height: 89px;
+}
+.pro-bet .chart-lose .item-90 {
+  height: 90px;
+}
+.pro-bet .chart-lose .item-91 {
+  height: 91px;
+}
+.pro-bet .chart-lose .item-92 {
+  height: 92px;
+}
+.pro-bet .chart-lose .item-93 {
+  height: 93px;
+}
+.pro-bet .chart-lose .item-94 {
+  height: 94px;
+}
+.pro-bet .chart-lose .item-95 {
+  height: 95px;
+}
+.pro-bet .chart-lose .item-96 {
+  height: 96px;
+}
+.pro-bet .chart-lose .item-97 {
+  height: 97px;
+}
+.pro-bet .chart-lose .item-98 {
+  height: 98px;
+}
+.pro-bet .chart-lose .item-99 {
+  height: 99px;
+}
+.pro-bet .chart-lose .item-100 {
+  height: 100px;
+}
+.pro-bet .chart-lose .item-101 {
+  height: 101px;
+}
+.pro-bet .chart-lose .item-102 {
+  height: 102px;
+}
+.pro-bet .chart-lose .item-103 {
+  height: 103px;
+}
+.pro-bet .chart-lose .item-104 {
+  height: 104px;
+}
+.pro-bet .chart-lose .item-105 {
+  height: 105px;
+}
+.pro-bet .chart-lose .item-106 {
+  height: 106px;
+}
+.pro-bet .chart-lose .item-107 {
+  height: 107px;
+}
+.pro-bet .chart-lose .item-108 {
+  height: 108px;
+}
+.pro-bet .chart-lose .item-109 {
+  height: 109px;
+}
+.pro-bet .chart-lose .item-110 {
+  height: 110px;
+}
+.pro-bet .chart-lose .item-111 {
+  height: 111px;
+}
+.pro-bet .chart-lose .item-112 {
+  height: 112px;
+}
+.pro-bet .chart-lose .item-113 {
+  height: 113px;
+}
+.pro-bet .chart-lose .item-114 {
+  height: 114px;
+}
+.pro-bet .chart-lose .item-115 {
+  height: 115px;
+}
+.pro-bet .chart-lose .item-116 {
+  height: 116px;
+}
+.pro-bet .chart-lose .item-117 {
+  height: 117px;
+}
+.pro-bet .chart-lose .item-118 {
+  height: 118px;
+}
+.pro-bet .chart-lose .item-119 {
+  height: 119px;
+}
+.pro-bet .chart-lose .item-120 {
+  height: 120px;
+}
+.pro-bet .chart-lose .item-121 {
+  height: 121px;
+}
+.pro-bet .chart-lose .item-122 {
+  height: 122px;
+}
+.pro-bet .chart-lose .item-123 {
+  height: 123px;
+}
+.pro-bet .chart-lose .item-124 {
+  height: 124px;
+}
+.pro-bet .chart-lose .item-125 {
+  height: 125px;
+}
+.pro-bet .chart-lose .item-126 {
+  height: 126px;
+}
+.pro-bet .chart-lose .item-127 {
+  height: 127px;
+}
+.pro-bet .chart-lose .item-128 {
+  height: 128px;
+}
+.pro-bet .chart-lose .item-129 {
+  height: 129px;
+}
+.pro-bet .chart-lose .item-130 {
+  height: 130px;
+}
+.pro-bet .chart-lose .item-131 {
+  height: 131px;
+}
+.pro-bet .chart-lose .item-132 {
+  height: 132px;
+}
+.pro-bet .chart-lose .item-133 {
+  height: 133px;
+}
+.pro-bet .chart-lose .item-134 {
+  height: 134px;
+}
+.pro-bet .chart-lose .item-135 {
+  height: 135px;
+}
+.pro-bet .chart-lose .item-136 {
+  height: 136px;
+}
+.pro-bet .chart-lose .item-137 {
+  height: 137px;
+}
+.pro-bet .chart-lose .item-138 {
+  height: 138px;
+}
+.pro-bet .chart-lose .item-139 {
+  height: 139px;
+}
+.pro-bet .chart-lose .item-140 {
+  height: 140px;
+}
+.pro-bet .chart-lose .item-141 {
+  height: 141px;
+}
+.pro-bet .chart-lose .item-142 {
+  height: 142px;
+}
+.pro-bet .chart-lose .item-143 {
+  height: 143px;
+}
+.pro-bet .chart-lose .item-144 {
+  height: 144px;
+}
+.pro-bet .chart-lose .item-145 {
+  height: 145px;
+}
+.pro-bet .chart-lose .item-146 {
+  height: 146px;
+}
+.pro-bet .chart-lose .item-147 {
+  height: 147px;
+}
+.pro-bet .chart-lose .item-148 {
+  height: 148px;
+}
+.pro-bet .chart-lose .item-149 {
+  height: 149px;
+}
+.pro-bet .chart-lose .item-150 {
+  height: 150px;
+}
+.pro-bet .chart-lose .item-151 {
+  height: 151px;
+}
+.pro-bet .chart-lose .item-152 {
+  height: 152px;
+}
+.pro-bet .chart-lose .item-153 {
+  height: 153px;
+}
+.pro-bet .chart-lose .item-154 {
+  height: 154px;
+}
+.pro-bet .chart-lose .item-155 {
+  height: 155px;
+}
+.pro-bet .chart-lose .item-156 {
+  height: 156px;
+}
+.pro-bet .chart-lose .item-157 {
+  height: 157px;
+}
+.pro-bet .chart-lose .item-158 {
+  height: 158px;
+}
+.pro-bet .chart-lose .item-159 {
+  height: 159px;
+}
+.pro-bet .chart-lose .item-160 {
+  height: 160px;
+}
+.pro-bet .chart-lose .item-161 {
+  height: 161px;
+}
+.pro-bet .chart-lose .item-162 {
+  height: 162px;
+}
+.pro-bet .chart-lose .item-163 {
+  height: 163px;
+}
+.pro-bet .chart-lose .item-164 {
+  height: 164px;
+}
+.pro-bet .chart-lose .item-165 {
+  height: 165px;
+}
+.pro-bet .chart-lose .item-166 {
+  height: 166px;
+}
+.pro-bet .chart-lose .item-167 {
+  height: 167px;
+}
+.pro-bet .chart-lose .item-168 {
+  height: 168px;
+}
+.pro-bet .chart-lose .item-169 {
+  height: 169px;
+}
+.pro-bet .chart-lose .item-170 {
+  height: 170px;
+}
+.pro-bet .chart-lose .item-171 {
+  height: 171px;
+}
+.pro-bet .chart-lose .item-172 {
+  height: 172px;
+}
+.pro-bet .chart-lose .item-173 {
+  height: 173px;
+}
+.pro-bet .chart-lose .item-174 {
+  height: 174px;
+}
+.pro-bet .chart-lose .item-175 {
+  height: 175px;
+}
+.pro-bet .chart-lose .item-176 {
+  height: 176px;
+}
+.pro-bet .chart-lose .item-177 {
+  height: 177px;
+}
+.pro-bet .chart-lose .item-178 {
+  height: 178px;
+}
+.pro-bet .chart-lose .item-179 {
+  height: 179px;
+}
+.pro-bet .chart-lose .item-180 {
+  height: 180px;
+}
+.pro-bet .tools-info {
+  height: 48px;
+  position: relative;
+}
+.pro-bet .tools-info .marquee-area {
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+  color: #000;
+}
+.pro-bet .tools-info .marquee-area .tool-name {
+  color: #f00;
+  font-weight: bold !important;
+  font-size: 14px !important;
+}
+.pro-bet .tools-info .marquee-area .author {
+  color: #e29812;
+  font-weight: bold !important;
+  font-size: 14px !important;
+}
+.pro-bet .tools-info .hot-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 24px;
+  line-height: 30px !important;
+  color: #f00;
+  font-weight: bold !important;
+  font-size: 16px !important;
+}
+.pro-bet .tools-info .version {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 24px;
+  line-height: 30px !important;
+  color: #13637b;
+  font-weight: bold !important;
+  font-size: 11px !important;
+}
