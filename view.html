@@ -88,22 +88,6 @@
 												<span>lần</span>
 											</div>
 										</div>
-										<div class="large-4 small-4 columns">
-											<div class="group">
-												<label class="title">Chuỗi rà sau</label>
-												<select style="max-width: 90px; display: inline;" ng-options="type.value as type.value for type in betProbesAfter" ng-model="betProbeAfter"
-												 ng-disabled="onBetting" ng-change="changeSetting()">
-													<option value="">Không set</option>
-												</select>
-											</div>
-										</div>
-										<div class="large-4 small-4 columns">
-											<div class="group">
-												<label class="title">Thua an toàn</label>
-												<select style="max-width: 100px; display: inline;" ng-options="type.value as type.value for type in btcLostList" ng-model="loseProbeAfter"
-												 ng-disabled="onBetting || !betProbeAfter" ng-change="changeSetting()"></select>
-											</div>
-										</div>
 									</div>
 								</fieldset>
 							</div>
