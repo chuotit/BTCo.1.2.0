@@ -180,8 +180,8 @@
 							<div class="group">
 								<label class="title">Cược lớn nhất hiện tại:</label>
 								<span>
-									<span class="red-color">{{onBtcMaxBet}}</span> (
-									<span class="red-color">{{onMaxBet}}</span> lần cược)</span>
+									<span class="red-color">{{btcMaxLose}}</span> (
+									<span class="red-color">{{betMaxLose}}</span> lần cược)</span>
 							</div>
 							<!-- <div class="group">
 								<label style="display: inline-block;" class="title">Cược lại sau:</label>
@@ -210,7 +210,7 @@
 			<div class="controls">
 				<div class="row">
 					<div class="large-6 small-6 columns">
-						<button ng-disabled="onBetting" ng-click="startBet()" class="bet-start">Bắt đầu</button>
+						<button ng-click="startBet()" class="bet-start">Bắt đầu</button>
 					</div>
 					<div class="large-6 small-6 columns">
 						<button ng-disabled="!onBetting" ng-click="pauseBet()" class="bet-pause">Tạm dừng</button>
@@ -218,9 +218,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="chart-lose" ng-if="loseList.length > 0">
-			<ul class="lose-list item-{{onMaxBet + 10}}">
-				<li ng-repeat="item in loseList" class="lose-item item-{{item.value}}">
+		<div class="chart-general" ng-if="generalList.length > 0">
+			<ul class="general-list item-{{(betMaxLose * 5) + 10}}">
+				<li class="general-item item-{{(betMaxLose * 5)}} lose-item"><span>{{betMaxLose}}</span></li>
+				<li ng-repeat="item in generalList" class="general-item item-{{item.value * 5}} {{item.style}}">
 					<span>{{item.value}}</span>
 				</li>
 			</ul>

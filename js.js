@@ -6,8 +6,8 @@
             $scope.betMode = 1; getBetModes();
             $scope.btcBase = '0.00000001'; getBetBases();
             $scope.payout = 2.5; getPayouts();
-            $scope.betProbe = 5; getBetProbes();
-            $scope.btcPlus = '0.00000100'; getBtcPlusList();
+            $scope.betProbe = 4; getBetProbes();
+            $scope.btcPlus = '0.00000020'; getBtcPlusList();
             $scope.percentIncrease = 100; getPercentIncreases();
             $scope.increaseWhenLost = 1; getIncreaseWhenLosts();
             $scope.betSpeed = 500; getBetSpeeds();
@@ -17,90 +17,99 @@
             $scope.balance = $('#balance').text();
             $scope.btcBefore = $scope.balance;
             $scope.btcAfter = $scope.btcBefore;
-            $scope.btcPlus = '0.00000100';
             $scope.btcIncrement = subBTC($scope.btcAfter, $scope.btcBefore);
+            $scope.betMaxLose = $scope.betCount = 0;
+            $scope.btcMaxLose = '0.00000001';
 
-            $scope.percentIncrease = 100;
-
-            $scope.betType = 1;
+            $scope.betType = 2;
 
             var loseCount = winCount = probeCount = onBigBetCount = 0;
-            var loseList = [];
+            var generalList = [];
+            $scope.bigBetFlg = false;
             $('#balance').bind('DOMSubtreeModified', function (e) {
                 if ($(e.currentTarget).is(':contains(".")')) {
                     $timeout(function () {
                         $scope.balance = $('#balance').text();
-
                         var btcOld = $scope.btcAfter;
                         $scope.btcAfter = $scope.balance;
                         $scope.btcIncrement = subBTC($scope.btcAfter, $scope.btcBefore);
+                        if ($scope.onBetting === true) {
+                            $scope.betCount++;
+                            if ($scope.btcAfter >= btcOld) {
+                                winCount++;
 
-                        // if ($scope.onBetting === true) {
-                        if ($scope.btcAfter >= btcOld) {
-                            winCount++;
-                            $scope.btcForBet = $scope.btcBase;
+                                generalList = getGeneralist(loseCount, generalList, 'lose-item');
 
-                            loseList = getLoseList(loseCount, loseList);
+                                $scope.betMaxLose = $scope.betMaxLose > loseCount ? $scope.betMaxLose : loseCount;
+                                $scope.btcMaxLose = $scope.btcForBet > $scope.btcMaxLose ? $scope.btcForBet : $scope.btcMaxLose;
 
-                            if ($scope.betType === 1) {
-                                if (probeCount === $scope.betProbe) {
-                                    probeCount = 0;
-                                }
-                                $scope.bigBetFlg = false;
-                                onBigBetCount = 0;
-                            }
-                            if ($scope.betType === 2) {
-                                if ($scope.bigBetFlg === true && onBigBetCount === 1) {
-                                    probeCount = 0;
-                                    $scope.btcForBet = $scope.btcPlus;
-                                    onBigBetCount++;
-                                } else {
+                                $scope.btcForBet = numberToSts(getRandomInt(1, 2));
+
+                                if ($scope.betType === 1) {
+                                    if (probeCount === $scope.betProbe) {
+                                        probeCount = 0;
+                                    }
                                     $scope.bigBetFlg = false;
                                     onBigBetCount = 0;
                                 }
-                            }
-                            loseCount = 0;
-                        } else {
-                            loseCount++;
-                            if (loseCount === $scope.betProbe) {
-                                probeCount++;
-                            }
+                                if ($scope.betType === 2) {
+                                    if ($scope.bigBetFlg === true && onBigBetCount === 1) {
+                                        probeCount = 0;
+                                        $scope.btcForBet = $scope.btcPlus;
+                                        onBigBetCount++;
+                                    } else {
+                                        $scope.bigBetFlg = false;
+                                        onBigBetCount = 0;
+                                    }
+                                }
+                                loseCount = 0;
+                            } else {
+                                loseCount++;
+                                var lastWin = generalList[generalList.length - 1] ? generalList[generalList.length - 1].value : 0;
+                                var lastLose = generalList[generalList.length - 2] ? generalList[generalList.length - 2].value : 0;
 
-                            if ($scope.betType === 1) {
-                                if (probeCount >= 3 && loseCount > $scope.betProbe) {
-                                    onBigBetCount++;
-                                    $scope.bigBetFlg = true;
-                                    $scope.btcForBet = onBigBetCount === 1 ? $scope.btcPlus : multiBTC($scope.btcForBet, getPercent($scope.percentIncrease));
-                                } else {
-                                    $scope.bigBetFlg = false;
-                                    $scope.btcForBet = $scope.btcBase;
+                                if (loseCount === $scope.betProbe && !$scope.bigBetFlg) {
+                                    probeCount++;
                                 }
-                            }
-                            if ($scope.betType === 2) {
-                                if (probeCount >= 3 && loseCount > $scope.betProbe) {
-                                    $scope.bigBetFlg = true;
-                                    onBigBetCount = 1;
-                                }
-                                if ($scope.bigBetFlg === true && onBigBetCount > 1) {
-                                    $scope.btcForBet = multiBTC($scope.btcForBet, getPercent($scope.percentIncrease));
-                                    onBigBetCount++;
-                                }
-                            }
 
-                            winCount = 0;
+                                generalList = getGeneralist(winCount, generalList, 'win-item');
+
+                                if ($scope.betType === 1) {
+                                    if (probeCount >= 3 && loseCount > $scope.betProbe) {
+                                        onBigBetCount++;
+                                        $scope.bigBetFlg = true;
+                                        $scope.btcForBet = onBigBetCount === 1 ? $scope.btcPlus : multiBTC($scope.btcForBet, getPercent($scope.percentIncrease));
+                                    } else {
+                                        $scope.bigBetFlg = false;
+                                        $scope.btcForBet = $scope.btcBase;
+                                    }
+                                }
+                                if ($scope.betType === 2) {
+                                    if (loseCount > $scope.betProbe) {
+                                        if ((lastWin != 1 && probeCount >= 3) || (lastWin === 1 && lastLose >= $scope.betProbe && loseCount >= ($scope.betProbe * 2))) {
+                                            $scope.bigBetFlg = true;
+                                            onBigBetCount = 1;
+                                        }
+                                    }
+                                    if ($scope.bigBetFlg === true && onBigBetCount > 1) {
+                                        $scope.btcForBet = onBigBetCount <= 5 ? multiBTC($scope.btcForBet, getPercent($scope.percentIncrease)) : numberToSts(getRandomInt(1, 2));
+                                        onBigBetCount++;
+                                    }
+                                }
+                                winCount = 0;
+                            }
+                            $scope.generalList = generalList;
+
+                            $timeout(function () {
+                                $('#double_your_btc_bet_hi_button').trigger('click');
+                            }, 300);
                         }
-                        $scope.loseList = loseList;
-                        console.log('loseCount: ' + loseCount, 'probeCount: ' + probeCount, '$scope.bigBetFlg: ' + $scope.bigBetFlg, '$scope.btcForBet: ' + $scope.btcForBet, 'onBigBetCount: ' + onBigBetCount);
-
-                        // $timeout(function () {
-                        //     $('#double_your_btc_bet_hi_button').trigger('click');
-                        // }, 1000);
                     });
                 }
             });
 
             $scope.startBet = function () {
-                // $scope.onBetting = true;
+                $scope.onBetting = true;
                 $timeout(function () {
                     $('#double_your_btc_bet_hi_button').trigger('click');
                 }, 20);
@@ -129,7 +138,7 @@
                 var btcBases = [];
                 for (i = 1; i <= 20; i++) {
                     btcBases.push({
-                        value: (i / 100000000).toFixed(8)
+                        value: numberToSts(i)
                     });
                 }
                 $scope.btcBases = btcBases;
@@ -165,27 +174,27 @@
                 for (i = 1; i <= 50000; i++) {
                     if (i <= 15) {
                         btcPlusList.push({
-                            value: (i / 100000000).toFixed(8)
+                            value: numberToSts(i)
                         });
                     } else if (i <= 50 && i % 5 == 0) {
                         btcPlusList.push({
-                            value: (i / 100000000).toFixed(8)
+                            value: numberToSts(i)
                         });
                     } else if (i <= 200 && i % 25 == 0) {
                         btcPlusList.push({
-                            value: (i / 100000000).toFixed(8)
+                            value: numberToSts(i)
                         });
                     } else if (i <= 1000 && i % 100 == 0) {
                         btcPlusList.push({
-                            value: (i / 100000000).toFixed(8)
+                            value: numberToSts(i)
                         });
                     } else if (i <= 5000 && i % 500 == 0) {
                         btcPlusList.push({
-                            value: (i / 100000000).toFixed(8)
+                            value: numberToSts(i)
                         });
                     } else if (i <= 50000 && i % 10000 == 0) {
                         btcPlusList.push({
-                            value: (i / 100000000).toFixed(8)
+                            value: numberToSts(i)
                         });
                     }
                 }
@@ -228,16 +237,17 @@
                 }];
             }
 
-            function getLoseList(loseCount, loseList) {
-                if (loseCount > 0) {
-                    loseList.push({
-                        value: loseCount
+            function getGeneralist(count, generalList, style) {
+                if (count > 0) {
+                    generalList.push({
+                        value: count,
+                        style: style
                     });
                 }
-                if (loseList.length > 39) {
-                    loseList = loseList.slice(1, loseList.length);
+                if (generalList.length > 65) {
+                    generalList = generalList.slice(1, generalList.length);
                 }
-                return loseList;
+                return generalList;
             }
 
             function sumBTC(btcOne, btcTwo) {
@@ -256,16 +266,24 @@
                 return 1 + (percent / 100);
             }
 
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            function numberToSts(num) {
+                return (num / 100000000).toFixed(8);
+            }
+
             $scope.requestBet = function () {
-                // if ($scope.onBetting === true) {
-                $scope.winFlg = Math.random() >= 0.7;
-                if ($scope.winFlg) {
-                    $('#balance').text(sumBTC($scope.balance, 0.00000001));
-                } else {
-                    $('#balance').text(subBTC($scope.balance, 0.00000001));
+                if ($scope.onBetting === true) {
+                    $scope.winFlg = Math.random() >= 0.7;
+                    if ($scope.winFlg) {
+                        $('#balance').text(sumBTC($scope.balance, $scope.btcForBet * ($scope.payout - 1)));
+                    } else {
+                        $('#balance').text(subBTC($scope.balance, $scope.btcForBet));
+                    }
+                    $scope.balance = $('#balance').text();
                 }
-                $scope.balance = $('#balance').text();
-                // }
             };
         }
     }]);

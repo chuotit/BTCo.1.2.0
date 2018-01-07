@@ -224,26 +224,32 @@ body {
   font-size: 13px;
   font-weight: bold;
 }
-.pro-bet .chart-lose {
-  margin-top: 10px;
+.pro-bet .chart-general {
+  margin-top: 20px;
   text-align: center;
 }
-.pro-bet .chart-lose .lose-list {
+.pro-bet .chart-general .general-list {
   display: inline;
   vertical-align: bottom;
+  font-size: 0;
 }
-.pro-bet .chart-lose .lose-list .lose-item {
+.pro-bet .chart-general .general-list .general-item {
   display: inline-block;
-  width: 20px;
-  background: #f9c9ce;
-  border: 1px solid #df9da4;
-  margin-left: -1px;
+  width: 13px;
   position: relative;
 }
-.pro-bet .chart-lose .lose-list .lose-item.first-child {
+.pro-bet .chart-general .general-list .general-item.first-child {
   margin-left: 0;
 }
-.pro-bet .chart-lose .lose-list .lose-item span {
+.pro-bet .chart-general .general-list .general-item.lose-item {
+  background: #f9c9ce;
+  border: 1px solid #df9da4;
+}
+.pro-bet .chart-general .general-list .general-item.win-item {
+  background: #cbeadb;
+  border: 1px solid #a7dbc2;
+}
+.pro-bet .chart-general .general-list .general-item span {
   display: block;
   position: absolute;
   top: -16px;
@@ -253,544 +259,544 @@ body {
   left: -1px;
   right: -1px;
 }
-.pro-bet .chart-lose .item-1 {
+.pro-bet .chart-general .item-1 {
   height: 1px;
 }
-.pro-bet .chart-lose .item-2 {
+.pro-bet .chart-general .item-2 {
   height: 2px;
 }
-.pro-bet .chart-lose .item-3 {
+.pro-bet .chart-general .item-3 {
   height: 3px;
 }
-.pro-bet .chart-lose .item-4 {
+.pro-bet .chart-general .item-4 {
   height: 4px;
 }
-.pro-bet .chart-lose .item-5 {
+.pro-bet .chart-general .item-5 {
   height: 5px;
 }
-.pro-bet .chart-lose .item-6 {
+.pro-bet .chart-general .item-6 {
   height: 6px;
 }
-.pro-bet .chart-lose .item-7 {
+.pro-bet .chart-general .item-7 {
   height: 7px;
 }
-.pro-bet .chart-lose .item-8 {
+.pro-bet .chart-general .item-8 {
   height: 8px;
 }
-.pro-bet .chart-lose .item-9 {
+.pro-bet .chart-general .item-9 {
   height: 9px;
 }
-.pro-bet .chart-lose .item-10 {
+.pro-bet .chart-general .item-10 {
   height: 10px;
 }
-.pro-bet .chart-lose .item-11 {
+.pro-bet .chart-general .item-11 {
   height: 11px;
 }
-.pro-bet .chart-lose .item-12 {
+.pro-bet .chart-general .item-12 {
   height: 12px;
 }
-.pro-bet .chart-lose .item-13 {
+.pro-bet .chart-general .item-13 {
   height: 13px;
 }
-.pro-bet .chart-lose .item-14 {
+.pro-bet .chart-general .item-14 {
   height: 14px;
 }
-.pro-bet .chart-lose .item-15 {
+.pro-bet .chart-general .item-15 {
   height: 15px;
 }
-.pro-bet .chart-lose .item-16 {
+.pro-bet .chart-general .item-16 {
   height: 16px;
 }
-.pro-bet .chart-lose .item-17 {
+.pro-bet .chart-general .item-17 {
   height: 17px;
 }
-.pro-bet .chart-lose .item-18 {
+.pro-bet .chart-general .item-18 {
   height: 18px;
 }
-.pro-bet .chart-lose .item-19 {
+.pro-bet .chart-general .item-19 {
   height: 19px;
 }
-.pro-bet .chart-lose .item-20 {
+.pro-bet .chart-general .item-20 {
   height: 20px;
 }
-.pro-bet .chart-lose .item-21 {
+.pro-bet .chart-general .item-21 {
   height: 21px;
 }
-.pro-bet .chart-lose .item-22 {
+.pro-bet .chart-general .item-22 {
   height: 22px;
 }
-.pro-bet .chart-lose .item-23 {
+.pro-bet .chart-general .item-23 {
   height: 23px;
 }
-.pro-bet .chart-lose .item-24 {
+.pro-bet .chart-general .item-24 {
   height: 24px;
 }
-.pro-bet .chart-lose .item-25 {
+.pro-bet .chart-general .item-25 {
   height: 25px;
 }
-.pro-bet .chart-lose .item-26 {
+.pro-bet .chart-general .item-26 {
   height: 26px;
 }
-.pro-bet .chart-lose .item-27 {
+.pro-bet .chart-general .item-27 {
   height: 27px;
 }
-.pro-bet .chart-lose .item-28 {
+.pro-bet .chart-general .item-28 {
   height: 28px;
 }
-.pro-bet .chart-lose .item-29 {
+.pro-bet .chart-general .item-29 {
   height: 29px;
 }
-.pro-bet .chart-lose .item-30 {
+.pro-bet .chart-general .item-30 {
   height: 30px;
 }
-.pro-bet .chart-lose .item-31 {
+.pro-bet .chart-general .item-31 {
   height: 31px;
 }
-.pro-bet .chart-lose .item-32 {
+.pro-bet .chart-general .item-32 {
   height: 32px;
 }
-.pro-bet .chart-lose .item-33 {
+.pro-bet .chart-general .item-33 {
   height: 33px;
 }
-.pro-bet .chart-lose .item-34 {
+.pro-bet .chart-general .item-34 {
   height: 34px;
 }
-.pro-bet .chart-lose .item-35 {
+.pro-bet .chart-general .item-35 {
   height: 35px;
 }
-.pro-bet .chart-lose .item-36 {
+.pro-bet .chart-general .item-36 {
   height: 36px;
 }
-.pro-bet .chart-lose .item-37 {
+.pro-bet .chart-general .item-37 {
   height: 37px;
 }
-.pro-bet .chart-lose .item-38 {
+.pro-bet .chart-general .item-38 {
   height: 38px;
 }
-.pro-bet .chart-lose .item-39 {
+.pro-bet .chart-general .item-39 {
   height: 39px;
 }
-.pro-bet .chart-lose .item-40 {
+.pro-bet .chart-general .item-40 {
   height: 40px;
 }
-.pro-bet .chart-lose .item-41 {
+.pro-bet .chart-general .item-41 {
   height: 41px;
 }
-.pro-bet .chart-lose .item-42 {
+.pro-bet .chart-general .item-42 {
   height: 42px;
 }
-.pro-bet .chart-lose .item-43 {
+.pro-bet .chart-general .item-43 {
   height: 43px;
 }
-.pro-bet .chart-lose .item-44 {
+.pro-bet .chart-general .item-44 {
   height: 44px;
 }
-.pro-bet .chart-lose .item-45 {
+.pro-bet .chart-general .item-45 {
   height: 45px;
 }
-.pro-bet .chart-lose .item-46 {
+.pro-bet .chart-general .item-46 {
   height: 46px;
 }
-.pro-bet .chart-lose .item-47 {
+.pro-bet .chart-general .item-47 {
   height: 47px;
 }
-.pro-bet .chart-lose .item-48 {
+.pro-bet .chart-general .item-48 {
   height: 48px;
 }
-.pro-bet .chart-lose .item-49 {
+.pro-bet .chart-general .item-49 {
   height: 49px;
 }
-.pro-bet .chart-lose .item-50 {
+.pro-bet .chart-general .item-50 {
   height: 50px;
 }
-.pro-bet .chart-lose .item-51 {
+.pro-bet .chart-general .item-51 {
   height: 51px;
 }
-.pro-bet .chart-lose .item-52 {
+.pro-bet .chart-general .item-52 {
   height: 52px;
 }
-.pro-bet .chart-lose .item-53 {
+.pro-bet .chart-general .item-53 {
   height: 53px;
 }
-.pro-bet .chart-lose .item-54 {
+.pro-bet .chart-general .item-54 {
   height: 54px;
 }
-.pro-bet .chart-lose .item-55 {
+.pro-bet .chart-general .item-55 {
   height: 55px;
 }
-.pro-bet .chart-lose .item-56 {
+.pro-bet .chart-general .item-56 {
   height: 56px;
 }
-.pro-bet .chart-lose .item-57 {
+.pro-bet .chart-general .item-57 {
   height: 57px;
 }
-.pro-bet .chart-lose .item-58 {
+.pro-bet .chart-general .item-58 {
   height: 58px;
 }
-.pro-bet .chart-lose .item-59 {
+.pro-bet .chart-general .item-59 {
   height: 59px;
 }
-.pro-bet .chart-lose .item-60 {
+.pro-bet .chart-general .item-60 {
   height: 60px;
 }
-.pro-bet .chart-lose .item-61 {
+.pro-bet .chart-general .item-61 {
   height: 61px;
 }
-.pro-bet .chart-lose .item-62 {
+.pro-bet .chart-general .item-62 {
   height: 62px;
 }
-.pro-bet .chart-lose .item-63 {
+.pro-bet .chart-general .item-63 {
   height: 63px;
 }
-.pro-bet .chart-lose .item-64 {
+.pro-bet .chart-general .item-64 {
   height: 64px;
 }
-.pro-bet .chart-lose .item-65 {
+.pro-bet .chart-general .item-65 {
   height: 65px;
 }
-.pro-bet .chart-lose .item-66 {
+.pro-bet .chart-general .item-66 {
   height: 66px;
 }
-.pro-bet .chart-lose .item-67 {
+.pro-bet .chart-general .item-67 {
   height: 67px;
 }
-.pro-bet .chart-lose .item-68 {
+.pro-bet .chart-general .item-68 {
   height: 68px;
 }
-.pro-bet .chart-lose .item-69 {
+.pro-bet .chart-general .item-69 {
   height: 69px;
 }
-.pro-bet .chart-lose .item-70 {
+.pro-bet .chart-general .item-70 {
   height: 70px;
 }
-.pro-bet .chart-lose .item-71 {
+.pro-bet .chart-general .item-71 {
   height: 71px;
 }
-.pro-bet .chart-lose .item-72 {
+.pro-bet .chart-general .item-72 {
   height: 72px;
 }
-.pro-bet .chart-lose .item-73 {
+.pro-bet .chart-general .item-73 {
   height: 73px;
 }
-.pro-bet .chart-lose .item-74 {
+.pro-bet .chart-general .item-74 {
   height: 74px;
 }
-.pro-bet .chart-lose .item-75 {
+.pro-bet .chart-general .item-75 {
   height: 75px;
 }
-.pro-bet .chart-lose .item-76 {
+.pro-bet .chart-general .item-76 {
   height: 76px;
 }
-.pro-bet .chart-lose .item-77 {
+.pro-bet .chart-general .item-77 {
   height: 77px;
 }
-.pro-bet .chart-lose .item-78 {
+.pro-bet .chart-general .item-78 {
   height: 78px;
 }
-.pro-bet .chart-lose .item-79 {
+.pro-bet .chart-general .item-79 {
   height: 79px;
 }
-.pro-bet .chart-lose .item-80 {
+.pro-bet .chart-general .item-80 {
   height: 80px;
 }
-.pro-bet .chart-lose .item-81 {
+.pro-bet .chart-general .item-81 {
   height: 81px;
 }
-.pro-bet .chart-lose .item-82 {
+.pro-bet .chart-general .item-82 {
   height: 82px;
 }
-.pro-bet .chart-lose .item-83 {
+.pro-bet .chart-general .item-83 {
   height: 83px;
 }
-.pro-bet .chart-lose .item-84 {
+.pro-bet .chart-general .item-84 {
   height: 84px;
 }
-.pro-bet .chart-lose .item-85 {
+.pro-bet .chart-general .item-85 {
   height: 85px;
 }
-.pro-bet .chart-lose .item-86 {
+.pro-bet .chart-general .item-86 {
   height: 86px;
 }
-.pro-bet .chart-lose .item-87 {
+.pro-bet .chart-general .item-87 {
   height: 87px;
 }
-.pro-bet .chart-lose .item-88 {
+.pro-bet .chart-general .item-88 {
   height: 88px;
 }
-.pro-bet .chart-lose .item-89 {
+.pro-bet .chart-general .item-89 {
   height: 89px;
 }
-.pro-bet .chart-lose .item-90 {
+.pro-bet .chart-general .item-90 {
   height: 90px;
 }
-.pro-bet .chart-lose .item-91 {
+.pro-bet .chart-general .item-91 {
   height: 91px;
 }
-.pro-bet .chart-lose .item-92 {
+.pro-bet .chart-general .item-92 {
   height: 92px;
 }
-.pro-bet .chart-lose .item-93 {
+.pro-bet .chart-general .item-93 {
   height: 93px;
 }
-.pro-bet .chart-lose .item-94 {
+.pro-bet .chart-general .item-94 {
   height: 94px;
 }
-.pro-bet .chart-lose .item-95 {
+.pro-bet .chart-general .item-95 {
   height: 95px;
 }
-.pro-bet .chart-lose .item-96 {
+.pro-bet .chart-general .item-96 {
   height: 96px;
 }
-.pro-bet .chart-lose .item-97 {
+.pro-bet .chart-general .item-97 {
   height: 97px;
 }
-.pro-bet .chart-lose .item-98 {
+.pro-bet .chart-general .item-98 {
   height: 98px;
 }
-.pro-bet .chart-lose .item-99 {
+.pro-bet .chart-general .item-99 {
   height: 99px;
 }
-.pro-bet .chart-lose .item-100 {
+.pro-bet .chart-general .item-100 {
   height: 100px;
 }
-.pro-bet .chart-lose .item-101 {
+.pro-bet .chart-general .item-101 {
   height: 101px;
 }
-.pro-bet .chart-lose .item-102 {
+.pro-bet .chart-general .item-102 {
   height: 102px;
 }
-.pro-bet .chart-lose .item-103 {
+.pro-bet .chart-general .item-103 {
   height: 103px;
 }
-.pro-bet .chart-lose .item-104 {
+.pro-bet .chart-general .item-104 {
   height: 104px;
 }
-.pro-bet .chart-lose .item-105 {
+.pro-bet .chart-general .item-105 {
   height: 105px;
 }
-.pro-bet .chart-lose .item-106 {
+.pro-bet .chart-general .item-106 {
   height: 106px;
 }
-.pro-bet .chart-lose .item-107 {
+.pro-bet .chart-general .item-107 {
   height: 107px;
 }
-.pro-bet .chart-lose .item-108 {
+.pro-bet .chart-general .item-108 {
   height: 108px;
 }
-.pro-bet .chart-lose .item-109 {
+.pro-bet .chart-general .item-109 {
   height: 109px;
 }
-.pro-bet .chart-lose .item-110 {
+.pro-bet .chart-general .item-110 {
   height: 110px;
 }
-.pro-bet .chart-lose .item-111 {
+.pro-bet .chart-general .item-111 {
   height: 111px;
 }
-.pro-bet .chart-lose .item-112 {
+.pro-bet .chart-general .item-112 {
   height: 112px;
 }
-.pro-bet .chart-lose .item-113 {
+.pro-bet .chart-general .item-113 {
   height: 113px;
 }
-.pro-bet .chart-lose .item-114 {
+.pro-bet .chart-general .item-114 {
   height: 114px;
 }
-.pro-bet .chart-lose .item-115 {
+.pro-bet .chart-general .item-115 {
   height: 115px;
 }
-.pro-bet .chart-lose .item-116 {
+.pro-bet .chart-general .item-116 {
   height: 116px;
 }
-.pro-bet .chart-lose .item-117 {
+.pro-bet .chart-general .item-117 {
   height: 117px;
 }
-.pro-bet .chart-lose .item-118 {
+.pro-bet .chart-general .item-118 {
   height: 118px;
 }
-.pro-bet .chart-lose .item-119 {
+.pro-bet .chart-general .item-119 {
   height: 119px;
 }
-.pro-bet .chart-lose .item-120 {
+.pro-bet .chart-general .item-120 {
   height: 120px;
 }
-.pro-bet .chart-lose .item-121 {
+.pro-bet .chart-general .item-121 {
   height: 121px;
 }
-.pro-bet .chart-lose .item-122 {
+.pro-bet .chart-general .item-122 {
   height: 122px;
 }
-.pro-bet .chart-lose .item-123 {
+.pro-bet .chart-general .item-123 {
   height: 123px;
 }
-.pro-bet .chart-lose .item-124 {
+.pro-bet .chart-general .item-124 {
   height: 124px;
 }
-.pro-bet .chart-lose .item-125 {
+.pro-bet .chart-general .item-125 {
   height: 125px;
 }
-.pro-bet .chart-lose .item-126 {
+.pro-bet .chart-general .item-126 {
   height: 126px;
 }
-.pro-bet .chart-lose .item-127 {
+.pro-bet .chart-general .item-127 {
   height: 127px;
 }
-.pro-bet .chart-lose .item-128 {
+.pro-bet .chart-general .item-128 {
   height: 128px;
 }
-.pro-bet .chart-lose .item-129 {
+.pro-bet .chart-general .item-129 {
   height: 129px;
 }
-.pro-bet .chart-lose .item-130 {
+.pro-bet .chart-general .item-130 {
   height: 130px;
 }
-.pro-bet .chart-lose .item-131 {
+.pro-bet .chart-general .item-131 {
   height: 131px;
 }
-.pro-bet .chart-lose .item-132 {
+.pro-bet .chart-general .item-132 {
   height: 132px;
 }
-.pro-bet .chart-lose .item-133 {
+.pro-bet .chart-general .item-133 {
   height: 133px;
 }
-.pro-bet .chart-lose .item-134 {
+.pro-bet .chart-general .item-134 {
   height: 134px;
 }
-.pro-bet .chart-lose .item-135 {
+.pro-bet .chart-general .item-135 {
   height: 135px;
 }
-.pro-bet .chart-lose .item-136 {
+.pro-bet .chart-general .item-136 {
   height: 136px;
 }
-.pro-bet .chart-lose .item-137 {
+.pro-bet .chart-general .item-137 {
   height: 137px;
 }
-.pro-bet .chart-lose .item-138 {
+.pro-bet .chart-general .item-138 {
   height: 138px;
 }
-.pro-bet .chart-lose .item-139 {
+.pro-bet .chart-general .item-139 {
   height: 139px;
 }
-.pro-bet .chart-lose .item-140 {
+.pro-bet .chart-general .item-140 {
   height: 140px;
 }
-.pro-bet .chart-lose .item-141 {
+.pro-bet .chart-general .item-141 {
   height: 141px;
 }
-.pro-bet .chart-lose .item-142 {
+.pro-bet .chart-general .item-142 {
   height: 142px;
 }
-.pro-bet .chart-lose .item-143 {
+.pro-bet .chart-general .item-143 {
   height: 143px;
 }
-.pro-bet .chart-lose .item-144 {
+.pro-bet .chart-general .item-144 {
   height: 144px;
 }
-.pro-bet .chart-lose .item-145 {
+.pro-bet .chart-general .item-145 {
   height: 145px;
 }
-.pro-bet .chart-lose .item-146 {
+.pro-bet .chart-general .item-146 {
   height: 146px;
 }
-.pro-bet .chart-lose .item-147 {
+.pro-bet .chart-general .item-147 {
   height: 147px;
 }
-.pro-bet .chart-lose .item-148 {
+.pro-bet .chart-general .item-148 {
   height: 148px;
 }
-.pro-bet .chart-lose .item-149 {
+.pro-bet .chart-general .item-149 {
   height: 149px;
 }
-.pro-bet .chart-lose .item-150 {
+.pro-bet .chart-general .item-150 {
   height: 150px;
 }
-.pro-bet .chart-lose .item-151 {
+.pro-bet .chart-general .item-151 {
   height: 151px;
 }
-.pro-bet .chart-lose .item-152 {
+.pro-bet .chart-general .item-152 {
   height: 152px;
 }
-.pro-bet .chart-lose .item-153 {
+.pro-bet .chart-general .item-153 {
   height: 153px;
 }
-.pro-bet .chart-lose .item-154 {
+.pro-bet .chart-general .item-154 {
   height: 154px;
 }
-.pro-bet .chart-lose .item-155 {
+.pro-bet .chart-general .item-155 {
   height: 155px;
 }
-.pro-bet .chart-lose .item-156 {
+.pro-bet .chart-general .item-156 {
   height: 156px;
 }
-.pro-bet .chart-lose .item-157 {
+.pro-bet .chart-general .item-157 {
   height: 157px;
 }
-.pro-bet .chart-lose .item-158 {
+.pro-bet .chart-general .item-158 {
   height: 158px;
 }
-.pro-bet .chart-lose .item-159 {
+.pro-bet .chart-general .item-159 {
   height: 159px;
 }
-.pro-bet .chart-lose .item-160 {
+.pro-bet .chart-general .item-160 {
   height: 160px;
 }
-.pro-bet .chart-lose .item-161 {
+.pro-bet .chart-general .item-161 {
   height: 161px;
 }
-.pro-bet .chart-lose .item-162 {
+.pro-bet .chart-general .item-162 {
   height: 162px;
 }
-.pro-bet .chart-lose .item-163 {
+.pro-bet .chart-general .item-163 {
   height: 163px;
 }
-.pro-bet .chart-lose .item-164 {
+.pro-bet .chart-general .item-164 {
   height: 164px;
 }
-.pro-bet .chart-lose .item-165 {
+.pro-bet .chart-general .item-165 {
   height: 165px;
 }
-.pro-bet .chart-lose .item-166 {
+.pro-bet .chart-general .item-166 {
   height: 166px;
 }
-.pro-bet .chart-lose .item-167 {
+.pro-bet .chart-general .item-167 {
   height: 167px;
 }
-.pro-bet .chart-lose .item-168 {
+.pro-bet .chart-general .item-168 {
   height: 168px;
 }
-.pro-bet .chart-lose .item-169 {
+.pro-bet .chart-general .item-169 {
   height: 169px;
 }
-.pro-bet .chart-lose .item-170 {
+.pro-bet .chart-general .item-170 {
   height: 170px;
 }
-.pro-bet .chart-lose .item-171 {
+.pro-bet .chart-general .item-171 {
   height: 171px;
 }
-.pro-bet .chart-lose .item-172 {
+.pro-bet .chart-general .item-172 {
   height: 172px;
 }
-.pro-bet .chart-lose .item-173 {
+.pro-bet .chart-general .item-173 {
   height: 173px;
 }
-.pro-bet .chart-lose .item-174 {
+.pro-bet .chart-general .item-174 {
   height: 174px;
 }
-.pro-bet .chart-lose .item-175 {
+.pro-bet .chart-general .item-175 {
   height: 175px;
 }
-.pro-bet .chart-lose .item-176 {
+.pro-bet .chart-general .item-176 {
   height: 176px;
 }
-.pro-bet .chart-lose .item-177 {
+.pro-bet .chart-general .item-177 {
   height: 177px;
 }
-.pro-bet .chart-lose .item-178 {
+.pro-bet .chart-general .item-178 {
   height: 178px;
 }
-.pro-bet .chart-lose .item-179 {
+.pro-bet .chart-general .item-179 {
   height: 179px;
 }
-.pro-bet .chart-lose .item-180 {
+.pro-bet .chart-general .item-180 {
   height: 180px;
 }
 .pro-bet .tools-info {

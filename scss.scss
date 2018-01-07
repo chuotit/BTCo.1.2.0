@@ -230,21 +230,27 @@ body {
         font-size: 13px;
         font-weight: bold;
     }
-    .chart-lose {
-        margin-top: 10px;
+    .chart-general {
+        margin-top: 20px;
         text-align: center;
-        .lose-list {
+        .general-list {
             display: inline;
             vertical-align: bottom;
-            .lose-item {
+            font-size: 0;
+            .general-item {
                 display: inline-block;
-                width: 20px;
-                background: #f9c9ce;
-                border: 1px solid #df9da4;
-                margin-left: -1px;
+                width: 13px;
                 position: relative;
                 &.first-child {
                     margin-left: 0;
+                }
+                &.lose-item {
+                    background: #f9c9ce;
+                    border: 1px solid #df9da4;
+                }
+                &.win-item {
+                    background: #cbeadb;
+                    border: 1px solid #a7dbc2;
                 }
                 span {
                     display: block;
