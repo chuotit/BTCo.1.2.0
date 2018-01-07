@@ -43,7 +43,7 @@
                                 $scope.betMaxLose = $scope.betMaxLose > loseCount ? $scope.betMaxLose : loseCount;
                                 $scope.btcMaxLose = $scope.btcForBet > $scope.btcMaxLose ? $scope.btcForBet : $scope.btcMaxLose;
 
-                                $scope.btcForBet = numberToSts(getRandomInt(1, 2));
+                                $scope.btcForBet = $scope.btcBase;
 
                                 if ($scope.betType === 1) {
                                     if (probeCount === $scope.betProbe) {
@@ -86,13 +86,14 @@
                                 }
                                 if ($scope.betType === 2) {
                                     if (loseCount > $scope.betProbe) {
-                                        if ((lastWin != 1 && probeCount >= 3) || (lastWin === 1 && lastLose >= $scope.betProbe && loseCount >= ($scope.betProbe * 2))) {
+                                        // if ((probeCount >= 3) || (lastWin === 1 && lastLose >= $scope.betProbe && loseCount >= ($scope.betProbe * 2))) {
+                                        if ((probeCount >= 2) || (lastWin === 1 && lastLose >= $scope.betProbe && loseCount >= ($scope.betProbe * 2))) {
                                             $scope.bigBetFlg = true;
                                             onBigBetCount = 1;
                                         }
                                     }
                                     if ($scope.bigBetFlg === true && onBigBetCount > 1) {
-                                        $scope.btcForBet = onBigBetCount <= 5 ? multiBTC($scope.btcForBet, getPercent($scope.percentIncrease)) : numberToSts(getRandomInt(1, 2));
+                                        $scope.btcForBet = onBigBetCount <= 9 ? multiBTC($scope.btcForBet, getPercent($scope.percentIncrease)) : $scope.btcBase;
                                         onBigBetCount++;
                                     }
                                 }
@@ -102,7 +103,7 @@
 
                             $timeout(function () {
                                 $('#double_your_btc_bet_hi_button').trigger('click');
-                            }, 300);
+                            }, 10);
                         }
                     });
                 }
