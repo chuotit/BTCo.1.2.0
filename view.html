@@ -219,9 +219,9 @@
 			</div>
 		</div>
 		<div class="chart-general" ng-if="generalList.length > 0">
-			<ul class="general-list item-{{(betMaxLose * 5) + 10}}">
-				<li class="general-item item-{{(betMaxLose * 5)}} lose-item"><span>{{betMaxLose}}</span></li>
-				<li ng-repeat="item in generalList" class="general-item item-{{item.value * 5}} {{item.style}}">
+			<ul class="general-list item-{{(betMaxLose * 5) + 10}}" ng-style="{'height': (betMaxLose * 5) + 10}">
+				<li class="general-item lose-item" ng-style="{'height': (betMaxLose * 5)}"><span>{{betMaxLose}}</span></li>
+				<li ng-repeat="item in generalList" class="general-item {{item.style}}" ng-style="{'height': (item.value * 5)}">
 					<span>{{item.value}}</span>
 				</li>
 			</ul>

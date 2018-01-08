@@ -264,11 +264,6 @@ body {
                 }
             }
         }
-        @for $i from 1 through 180 {
-            .item-#{$i} {
-                height:  0px + $i
-            }
-        }
     }
     .tools-info {
         height: 48px;
