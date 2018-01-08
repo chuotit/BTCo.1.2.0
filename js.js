@@ -3,14 +3,14 @@
 
     app.controller("X10Controller", ['$scope', '$timeout', function ($scope, $timeout) {
         {
-            $scope.betMode = 1; getBetModes();
-            $scope.btcBase = '0.00000001'; getBetBases();
-            $scope.payout = 2.5; getPayouts();
-            $scope.betProbe = 4; getBetProbes();
-            $scope.btcPlus = '0.00000020'; getBtcPlusList();
-            $scope.percentIncrease = 100; getPercentIncreases();
-            $scope.increaseWhenLost = 1; getIncreaseWhenLosts();
-            $scope.betSpeed = 500; getBetSpeeds();
+            getBetModes(1);
+            getBetBases('0.00000001');
+            getPayouts(2.5);
+            getBetProbes(4);
+            getBtcPlusList('0.00000020');
+            getPercentIncreases(100);
+            getIncreaseWhenLosts(1);
+            getBetSpeeds(15);
 
             $scope.betSpeedAuto = true;
             $scope.btcForBet = $scope.btcBase;
@@ -21,7 +21,7 @@
             $scope.betMaxLose = $scope.betCount = 0;
             $scope.btcMaxLose = '0.00000001';
 
-            $scope.betType = 2;
+            $scope.betType = 3;
 
             var loseCount = winCount = probeCount = onBigBetCount = 0;
             var generalList = [];
@@ -103,7 +103,7 @@
 
                             $timeout(function () {
                                 $('#double_your_btc_bet_hi_button').trigger('click');
-                            }, 10);
+                            }, $scope.betSpeed);
                         }
                     });
                 }
@@ -120,7 +120,8 @@
                 $scope.onBetting = false;
             };
 
-            function getBetModes() {
+            function getBetModes(betModeDefault) {
+                $scope.betMode = betModeDefault;
                 $scope.betModes = [{
                     name: 'Random',
                     value: 1
@@ -135,7 +136,8 @@
                     value: 4
                 }];
             }
-            function getBetBases() {
+            function getBetBases(btcBaseDefault) {
+                $scope.btcBase = btcBaseDefault;
                 var btcBases = [];
                 for (i = 1; i <= 20; i++) {
                     btcBases.push({
@@ -144,7 +146,8 @@
                 }
                 $scope.btcBases = btcBases;
             }
-            function getPayouts() {
+            function getPayouts(payoutDefault) {
+                $scope.payout = payoutDefault;
                 var payouts = [];
                 for (i = 2; i <= 20; i++) {
                     if (i === 2) {
@@ -161,7 +164,8 @@
                 }
                 $scope.payouts = payouts;
             }
-            function getBetProbes() {
+            function getBetProbes(betProbeDefault) {
+                $scope.betProbe = betProbeDefault;
                 var betProbes = [];
                 for (i = 1; i <= 100; i++) {
                     betProbes.push({
@@ -170,7 +174,8 @@
                 }
                 $scope.betProbes = betProbes;
             }
-            function getBtcPlusList() {
+            function getBtcPlusList(btcPlusDefault) {
+                $scope.btcPlus = btcPlusDefault;
                 var btcPlusList = [];
                 for (i = 1; i <= 50000; i++) {
                     if (i <= 15) {
@@ -201,7 +206,8 @@
                 }
                 $scope.btcPlusList = btcPlusList;
             }
-            function getPercentIncreases() {
+            function getPercentIncreases(percentIncreaseDefault) {
+                $scope.percentIncrease = percentIncreaseDefault;
                 var percentIncreases = [];
                 for (i = 1; i <= 200; i++) {
                     percentIncreases.push({
@@ -210,7 +216,8 @@
                 }
                 $scope.percentIncreases = percentIncreases;
             }
-            function getIncreaseWhenLosts() {
+            function getIncreaseWhenLosts(increaseWhenLostDefault) {
+                $scope.increaseWhenLost = increaseWhenLostDefault;
                 var increaseWhenLosts = [];
                 for (i = 1; i <= 20; i++) {
                     increaseWhenLosts.push({
@@ -219,7 +226,8 @@
                 }
                 $scope.increaseWhenLosts = increaseWhenLosts;
             }
-            function getBetSpeeds() {
+            function getBetSpeeds(betSpeed) {
+                $scope.betSpeed = betSpeed;
                 $scope.betSpeeds = [{
                     name: 'Cực nhanh',
                     value: 15
