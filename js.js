@@ -12,6 +12,7 @@
             getIncreaseWhenLosts(1);
             getBetSpeeds(15);
 
+            var betButton = 'hi';
             $scope.betSpeedAuto = true;
             $scope.btcForBet = $scope.btcBase;
             $scope.balance = $('#balance').text();
@@ -20,6 +21,7 @@
             $scope.btcIncrement = subBTC($scope.btcAfter, $scope.btcBefore);
             $scope.betMaxLose = $scope.betCount = 0;
             $scope.btcMaxLose = '0.00000001';
+            $scope.betHiFlg = true;
 
             $scope.betType = 3;
 
@@ -30,6 +32,7 @@
                 if ($(e.currentTarget).is(':contains(".")')) {
                     $timeout(function () {
                         $scope.balance = $('#balance').text();
+                        betButton = getBetButton($scope.betMode);
                         var btcOld = $scope.btcAfter;
                         $scope.btcAfter = $scope.balance;
                         $scope.btcIncrement = subBTC($scope.btcAfter, $scope.btcBefore);
@@ -58,6 +61,12 @@
                                         $scope.btcForBet = $scope.btcPlus;
                                         onBigBetCount++;
                                     } else {
+                                        $scope.bigBetFlg = false;
+                                        onBigBetCount = 0;
+                                    }
+                                }
+                                if ($scope.betType === 3) {
+                                    if ($scope.bigBetFlg === true) {
                                         $scope.bigBetFlg = false;
                                         onBigBetCount = 0;
                                     }
@@ -97,12 +106,26 @@
                                         onBigBetCount++;
                                     }
                                 }
+                                if ($scope.betType === 3) {
+                                    if (winCount >= 3 && $scope.bigBetFlg === false) {
+                                        $scope.bigBetFlg = true;
+                                    }
+                                    if ($scope.bigBetFlg === true) {
+                                        onBigBetCount++;
+                                        $scope.btcForBet = onBigBetCount === 1 ? $scope.btcPlus : multiBTC($scope.btcForBet, getPercent($scope.percentIncrease));
+
+                                        if (onBigBetCount > 6) {
+                                            $scope.btcForBet = $scope.btcBase;
+                                        }
+                                    }
+                                }
                                 winCount = 0;
                             }
                             $scope.generalList = generalList;
+                            console.log(betButton, loseCount > 0 ? 'loseCount:' + loseCount : 'winCount:' + winCount, '$scope.bigBetFlg:' + $scope.bigBetFlg, '$scope.btcForBet:', $scope.btcForBet, 'onBigBetCount:' + onBigBetCount);
 
                             $timeout(function () {
-                                $('#double_your_btc_bet_hi_button').trigger('click');
+                                $('#double_your_btc_bet_' + betButton + '_button').trigger('click');
                             }, $scope.betSpeed);
                         }
                     });
@@ -112,8 +135,8 @@
             $scope.startBet = function () {
                 $scope.onBetting = true;
                 $timeout(function () {
-                    $('#double_your_btc_bet_hi_button').trigger('click');
-                }, 20);
+                    $('#double_your_btc_bet_' + betButton + '_button').trigger('click');
+                }, $scope.betSpeed);
             };
 
             $scope.pauseBet = function () {
@@ -230,19 +253,19 @@
                 $scope.betSpeed = betSpeed;
                 $scope.betSpeeds = [{
                     name: 'Cực nhanh',
-                    value: 15
+                    value: 68
                 }, {
                     name: 'nhanh',
-                    value: 300
+                    value: 566
                 }, {
                     name: 'Bình thường',
-                    value: 800
+                    value: 868
                 }, {
                     name: 'chậm',
-                    value: 1500
+                    value: 1666
                 }, {
                     name: 'Cực chậm',
-                    value: 2300
+                    value: 2666
                 }];
             }
 
@@ -277,6 +300,30 @@
 
             function getRandomInt(min, max) {
                 return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            function getBetButton(betMode) {
+                var betButton = 'hi';
+                switch (betMode) {
+                    case 1:
+                        var random_boolean = Math.random() >= 0.5;
+                        $scope.betHiFlg = random_boolean;
+                        break;
+                    case 2:
+                        $scope.betHiFlg = !$scope.betHiFlg;
+                        break;
+                    case 3:
+                        $scope.betHiFlg = true;
+                        break;
+                    case 4:
+                        $scope.betHiFlg = false;
+                        break;
+                }
+                if ($scope.betHiFlg) {
+                    betButton = 'hi';
+                } else {
+                    betButton = 'lo';
+                }
+                return betButton;
             }
 
             function numberToSts(num) {
